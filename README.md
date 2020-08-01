@@ -8,7 +8,7 @@
 1. Install the app for your workspace.
 1. Find the bot token (starts with `xoxb-`) and set it as an environment variable before running the script:
 
-```
+```bash
 $ export SLACK_API_TOKEN=...
 $ python jechova.py pyvo-praha https://pyvo.cz/api/series/praha-pyvo.ics
 ```
@@ -21,6 +21,4 @@ When debugging, force sending of the message by adding `-f`. (And use `#automati
 
 ## Deployment
 
-The script is deployed as a [daily GitHub Action](https://github.com/pyvec/jechova/actions). `SLACK_API_TOKEN` needs to be [set as a secret](https://github.com/pyvec/jechova/settings/secrets).
-
-If you want Jechová to handle meetup in your town as well, just [add a new workflow](https://github.com/pyvec/jechova/tree/master/.github/workflows).
+The script is deployed as a [daily GitHub Action](https://github.com/pyvec/jechova/actions). `SLACK_API_TOKEN` needs to be [set as a secret](https://github.com/pyvec/jechova/settings/secrets). If you want Jechová to handle meetup in your town as well, just [add a new workflow](https://github.com/pyvec/jechova/tree/master/.github/workflows).
