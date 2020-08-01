@@ -12,7 +12,7 @@ Checks whether the next meetup is announced on [pyvo.cz](https://pyvo.cz/). If n
 
 ```bash
 $ export SLACK_API_TOKEN=...
-$ python jechova.py pyvo-praha https://pyvo.cz/api/series/praha-pyvo.ics
+$ python jechova.py '#pyvo-praha' https://pyvo.cz/api/series/praha-pyvo.ics
 ```
 
 First argument is a channel name where the message should go. Beware, if you specify it as `#pyvo-praha`, standard shell interprets the `#` as a start of a comment and will ignore the rest of the line. You must pass it either as `pyvo-praha` or as `'#pyvo-praha'` (both works).
