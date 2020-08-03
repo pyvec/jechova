@@ -22,8 +22,8 @@ if __name__ == '__main__':
     calendar = Calendar(response.text)
 
     today = arrow.now('Europe/Prague')
-    event = sorted((e for e in calendar.events if e.begin > today),
-                   key=attrgetter('begin'))[0]
+    event = min((e for e in calendar.events if e.begin > today),
+                key=attrgetter('begin'))
     remaining_days = (event.begin - today).days
 
     if not force and remaining_days not in NOTIFY_WHEN_REMAINING_DAYS:
