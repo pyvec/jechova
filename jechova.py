@@ -39,7 +39,7 @@ if __name__ == '__main__':
     client = WebClient(token=os.environ['SLACK_API_TOKEN'])
     client.chat_postMessage(channel=f'#{channel}', text=dedent('''
         Máte téma? A mohla bych ho vidět? :eyes:\n\n
-        Pokud už tušíte, o čem Pyvo bude, přidejte to na pyvo.cz — může
+        Pokud už tušíte, o čem Pyvo bude, přidejte to na pyvo.cz – může
         to udělat kdokoliv, v 5 jednoduchých krocích:
         https://docs.pyvec.org/guides/meetup.html#informace-na-pyvo-cz
     ''').strip())
