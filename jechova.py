@@ -28,7 +28,7 @@ if __name__ == '__main__':
 
     if not force and remaining_days not in NOTIFY_WHEN_REMAINING_DAYS:
         print(f'Dní do dalšího srazu:', remaining_days)
-        print(f'Ozývám se když zbývá:', ', '.join(map(str, NOTIFY_WHEN_REMAINING_DAYS)))        
+        print(f'Ozývám se, když zbývá:', ', '.join(map(str, NOTIFY_WHEN_REMAINING_DAYS)))        
         sys.exit()
 
     if 'tentative-date' not in event.categories:
