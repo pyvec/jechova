@@ -1,3 +1,4 @@
+from argparse import ArgumentParser
 import os
 import sys
 from operator import attrgetter
@@ -13,9 +14,14 @@ NOTIFY_WHEN_REMAINING_DAYS = (14, 7, 3)
 
 
 if __name__ == '__main__':
-    force = '-f' in sys.argv
-    channel = sys.argv[1].lstrip('#')
-    ics_url = sys.argv[2]
+    parser = ArgumentParser()
+    parser.add_argument('--force', '-f', action='store_true')
+    parser.add_argument('channel')
+    parser.add_argument('ics_url')
+    args = parser.parse_args()
+    force = args.force
+    channel = args.channel.lstrip('#')
+    ics_url = args.ics_url
 
     response = requests.get(ics_url)
     response.raise_for_status()
