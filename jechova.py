@@ -39,7 +39,7 @@ if __name__ == '__main__':
         print("Zdá se, že příští sraz je naplánovaný!")
         sys.exit()
 
-    channel = f'#{args.channel.lstrip('#')}'
+    channel = '#' + args.channel.lstrip('#')
     client = WebClient(token=os.environ['SLACK_API_TOKEN'])
     client.chat_postMessage(channel=channel, text=dedent('''
         Máte téma? A mohla bych ho vidět? :eyes:\n\n

@@ -27,6 +27,6 @@ The script is deployed as a [daily GitHub Action](https://github.com/pyvec/jecho
 
 ## Dependencies and CI
 
-[@dependabot](https://dependabot.com/) is set up to automatically upgrade dependencies on this repo. It won't automerge PRs if there are no checks under them though. That's why there's also a default build, currently only consisting of a linter check. That build is pretty much useless, as nobody cares if the 40 lines of jechova.py fits any standards, but it does the job to convince [@dependabot](https://dependabot.com/) to auto-merge PRs.
+[@dependabot](https://dependabot.com/) is set up to automatically upgrade dependencies on the repo. It won't automerge PRs if there are no checks though, so there's also a [default build as a GitHub Action](https://github.com/pyvec/jechova/actions/build.yml), currently only consisting of a linter check.
 
 There are no tests. If the code breaks, we'll know when it crashes during the daily cron build.
