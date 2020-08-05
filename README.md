@@ -24,3 +24,9 @@ When debugging, force sending of the message by adding `-f`. (And use `#automati
 ## Deployment
 
 The script is deployed as a [daily GitHub Action](https://github.com/pyvec/jechova/actions). `SLACK_API_TOKEN` needs to be [set as a secret](https://github.com/pyvec/jechova/settings/secrets). If you want Jechová to handle meetup in your town as well, just [add a new workflow](https://github.com/pyvec/jechova/tree/master/.github/workflows).
+
+## Dependencies and CI
+
+[@dependabot](https://dependabot.com/) is set up to automatically upgrade dependencies on this repo. It won't automerge PRs if there are no checks under them though. That's why there's also a default build, currently only consisting of a linter check. That build is pretty much useless, as nobody cares if the 40 lines of jechova.py fits any standards, but it does the job to convince [@dependabot](https://dependabot.com/) to auto-merge PRs.
+
+There are no tests. If the code breaks, we'll know when it crashes during the daily cron build.
