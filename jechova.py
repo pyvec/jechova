@@ -14,10 +14,11 @@ NOTIFY_WHEN_REMAINING_DAYS = (14, 7, 3)
 
 
 if __name__ == '__main__':
-    p = ArgumentParser()
-    p.add_argument('--force', '-f', action='store_true')
-    p.add_argument('channel')
-    p.add_argument('ics_url')
+    parser = ArgumentParser()
+    parser.add_argument('--force', '-f', action='store_true')
+    parser.add_argument('channel')
+    parser.add_argument('ics_url')
+    args = parser.parse_args()
     force = args.force
     channel = args.channel.lstrip('#')
     ics_url = args.ics_url
