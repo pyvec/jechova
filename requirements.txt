@@ -1,4 +1,4 @@
 requests==2.24.0
 ics==0.7
 arrow==0.16.0
-slackclient==2.8.2
+slackclient==2.9.0
