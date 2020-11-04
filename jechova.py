@@ -49,18 +49,20 @@ if __name__ == '__main__':
 
     channel = '#' + args.channel.lstrip('#')
     client = WebClient(token=os.environ['SLACK_API_TOKEN'])
+
+    docs_url = "https://docs.pyvec.org/guides/meetup.html#informace-na-pyvo-cz"
     if web_url:
         client.chat_postMessage(channel=channel, text=dedent(f'''
             Máte téma? A mohla bych ho vidět? :eyes:\n\n
             Pokud už tušíte, o čem Pyvo bude, přidejte to na pyvo.cz — nejlépe
             přes tlačítko _přidat informace o dalším srazu_ na <{web_url}>.
 
-            (Existuje i <https://docs.pyvec.org/guides/meetup.html#informace-na-pyvo-cz|podrobnější návod>.)
+            (Existuje i <{docs_url}|podrobnější návod>.)
         ''').strip())
     else:
-        client.chat_postMessage(channel=channel, text=dedent('''
+        client.chat_postMessage(channel=channel, text=dedent(f'''
             Máte téma? A mohla bych ho vidět? :eyes:\n\n
             Pokud už tušíte, o čem Pyvo bude, přidejte to na pyvo.cz — může
             to udělat kdokoliv, v 5 jednoduchých krocích:
-            https://docs.pyvec.org/guides/meetup.html#informace-na-pyvo-cz
+            {docs_url}
         ''').strip())
