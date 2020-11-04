@@ -12,12 +12,13 @@ Checks whether the next meetup is announced on [pyvo.cz](https://pyvo.cz/). If n
 
 ```bash
 $ export SLACK_API_TOKEN=...
-$ python jechova.py '#pyvo-praha' https://pyvo.cz/api/series/praha-pyvo.ics
+$ python jechova.py '#pyvo-praha' praha-pyvo
 ```
 
 First argument is a channel name where the message should go. Beware, if you specify it as `#pyvo-praha`, standard shell interprets the `#` as a start of a comment and will ignore the rest of the line. You must pass it either as `pyvo-praha` or as `'#pyvo-praha'` (both works).
 
-Second argument is the source ics feed for the Pyvo meetup you want to watch. Each meetup tracked on pyvo.cz has the ics feed automatically generated, you can find a link somewhere on the meetup page (e.g. somewhere on [pyvo.cz/praha-pyvo](https://pyvo.cz/praha-pyvo/)).
+Second argument is the meetup slug used in URLs for calendars and meetups, such as `praha-pyvo`.
+(Deprecated: it can also be the URL for the ics feed; the message won't be as nice if you use that.).
 
 When debugging, force sending of the message by adding `-f`. (And use `#automatizace` or other less populated channel.)
 
