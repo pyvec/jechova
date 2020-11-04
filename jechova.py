@@ -53,5 +53,5 @@ if __name__ == '__main__':
         'Pokud už tušíte, o čem Pyvo bude, přidejte to na pyvo.cz',
         'přes odkaz _přidat informace o dalším srazu_ na',
         f'<{web_url}|pyvo.cz/{args.pyvo_slug}>.\n',
-        '(Složitější případy řešte v <#C97Q9HHHT>)',  # makes a link to the #pyvo channel
+        '(Složitější případy řešte v <#C97Q9HHHT>)',  # links to #pyvo channel
     )))
