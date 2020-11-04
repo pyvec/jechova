@@ -5,7 +5,7 @@ Checks whether the next meetup is announced on [pyvo.cz](https://pyvo.cz/). If n
 ## Usage
 
 1. [Create a Slack app](https://api.slack.com/apps?new_app=1).
-1. Add scopes allowing the app to write to Slack channels.
+1. Add scopes allowing the app to write to Slack channels (`chat:write`, `chat:write.public`).
 1. Create a bot user for the app so it can act independently.
 1. Install the app for your workspace.
 1. Find the bot token (starts with `xoxb-`) and set it as an environment variable before running the script:
