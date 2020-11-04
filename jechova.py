@@ -2,7 +2,6 @@ from argparse import ArgumentParser
 import os
 import sys
 from operator import attrgetter
-from textwrap import dedent
 
 import arrow
 from ics import Calendar
@@ -21,14 +20,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if '/' in args.pyvo_slug:
-        # Deprecated: We accept an ICS URL instead of just a slug
-        ics_url = args.pyvo_slug
-        web_url = None
-    else:
-        ics_url = f'https://pyvo.cz/api/series/{args.pyvo_slug}.ics'
-        web_url = f'https://pyvo.cz/{args.pyvo_slug}/'
+        raise ValueError(
+            "Meetup slug cannot contain slashes. See the README for usage."
+        )
 
-    response = requests.get(ics_url)
+    response = requests.get(f'https://pyvo.cz/api/series/{args.pyvo_slug}.ics')
     response.raise_for_status()
     calendar = Calendar(response.text)
 
@@ -51,18 +47,11 @@ if __name__ == '__main__':
     client = WebClient(token=os.environ['SLACK_API_TOKEN'])
 
     docs_url = "https://docs.pyvec.org/guides/meetup.html#informace-na-pyvo-cz"
-    if web_url:
-        client.chat_postMessage(channel=channel, text=dedent(f'''
-            Máte téma? A mohla bych ho vidět? :eyes:\n\n
-            Pokud už tušíte, o čem Pyvo bude, přidejte to na pyvo.cz — nejlépe
-            přes tlačítko _přidat informace o dalším srazu_ na <{web_url}>.
-
-            (Existuje i <{docs_url}|podrobnější návod>.)
-        ''').strip())
-    else:
-        client.chat_postMessage(channel=channel, text=dedent(f'''
-            Máte téma? A mohla bych ho vidět? :eyes:\n\n
-            Pokud už tušíte, o čem Pyvo bude, přidejte to na pyvo.cz — může
-            to udělat kdokoliv, v 5 jednoduchých krocích:
-            {docs_url}
-        ''').strip())
+    web_url = f'https://pyvo.cz/{args.pyvo_slug}/'
+    client.chat_postMessage(channel=channel, text=' '.join((
+        'Máte téma? A mohla bych ho vidět? :eyes:\n',
+        'Pokud už tušíte, o čem Pyvo bude, přidejte to na pyvo.cz',
+        'přes odkaz _přidat informace o dalším srazu_ na',
+        f'<{web_url}|pyvo.cz/{args.pyvo_slug}>.\n',
+        '(Složitější případy řešte v <#C97Q9HHHT>)',
+    )))

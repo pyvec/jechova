@@ -18,7 +18,6 @@ $ python jechova.py '#pyvo-praha' praha-pyvo
 First argument is a channel name where the message should go. Beware, if you specify it as `#pyvo-praha`, standard shell interprets the `#` as a start of a comment and will ignore the rest of the line. You must pass it either as `pyvo-praha` or as `'#pyvo-praha'` (both works).
 
 Second argument is the meetup slug used in URLs for calendars and meetups, such as `praha-pyvo`.
-(Deprecated: it can also be the URL for the ics feed; the message won't be as nice if you use that.).
 
 When debugging, force sending of the message by adding `-f`. (And use `#automatizace` or other less populated channel.)
 
