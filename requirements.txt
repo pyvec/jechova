@@ -1,4 +1,4 @@
 requests==2.27.1
 ics==0.7
-arrow<1.2  # newer arrow conflicts with ics==0.7
+arrow<1.3  # newer arrow conflicts with ics==0.7
 slackclient==2.9.3
