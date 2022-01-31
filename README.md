@@ -2,6 +2,8 @@
 
 Checks whether the next meetup is announced on [pyvo.cz](https://pyvo.cz/). If not, sends a message to the specified Slack channel to remind about the situation and provide a link to documentation on how anyone can fix it.
 
+![screenshot](screenshot.png)
+
 ## Usage
 
 1. [Create a Slack app](https://api.slack.com/apps?new_app=1).
